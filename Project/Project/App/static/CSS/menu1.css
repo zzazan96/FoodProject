@@ -1,0 +1,9 @@
+.Menu1 ul li{
+	float: left;
+	width: 15%;
+	height: 100%;
+	line-height: 25px;
+	text-align: center;
+	background: #E0D3B6;
+	list-style: none;
+}
