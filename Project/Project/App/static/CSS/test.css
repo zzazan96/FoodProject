@@ -8,20 +8,20 @@ body{
   margin: 10px auto;
 }
 .header{
-  background: #ECDFBF;
+  background: #fff;
   overflow: hidden;
   padding: 20px;
   text-align: center;
 }
 .header h1{
   text-transform: uppercase;
-  color: white;
+  color: black;
   margin: 0;
   margin-bottom: 8px;
 }
 #value{
   border: none;
-  background: #E0D3B6;
+  background: #fff;
   padding: 6px;
   font-size: 18px;
   width: 80%;
@@ -32,7 +32,7 @@ body{
   outline: none;
 }
 .container{
-  background: #FFFFF5;
+  background: #FFFFFF;
   padding: 1%;
 }
 .item{
@@ -43,8 +43,8 @@ body{
 .icon{
   width: 25px;
   height: 25px;
-  background: #E0D3B6;
-  color: white;
+  background: #fff;
+  color: gray;
   font-size: 15px;
   text-align: center;
   line-height: 25px;
