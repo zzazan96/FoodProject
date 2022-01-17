@@ -15,18 +15,18 @@ body{
 }
 .header h1{
   text-transform: uppercase;
-  color: white;
+  color: whitesmoke;
   margin: 0;
   margin-bottom: 8px;
 }
 #value{
   border: none;
-  background: #E0D3B6;
+  background: whitesmoke;
   padding: 6px;
   font-size: 18px;
   width: 80%;
   border-radius: 6px;
-  color: white;
+  color: black;
 }
 #value:focus{
   outline: none;
@@ -43,8 +43,8 @@ body{
 .icon{
   width: 25px;
   height: 25px;
-  background: #E0D3B6;
-  color: white;
+  background: whitesmoke;
+  color: black;
   font-size: 15px;
   text-align: center;
   line-height: 25px;
