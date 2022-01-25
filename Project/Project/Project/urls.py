@@ -19,10 +19,12 @@ from App import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.list, name='list'),
-    path('main/', views.main, name='main'),
+    path('',views.login, name='login'),
+    path('save/', views.save, name='save'),
     path('Userlist/', views.Userlist, name='Userlist'),
     path('Userlist/listsave/', views.listsave, name='listsave'),
-    path('main/search', views.search, name='search'),
-    path('main/mainfix', views.mainfix, name='mainfix'),
+    path('save/search/', views.search, name='search'),
+    path('save/savefix/', views.savefix, name='savefix'),
+    path('mainlist/',views.mainlist, name='mainlist'),
+    path('register/',views.register, name='register'),
 ]
