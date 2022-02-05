@@ -48,7 +48,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/">레시피</a>
+                                    <a class="nav-link" href="/mainlist">레시피</a>
                                     <a class="nav-link" href="/Userlist">유저 레시피</a>
                                 </nav>
                             </div>
@@ -59,7 +59,7 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="/main">
+                                    <a class="nav-link collapsed" href="/save">
                                         나의 식재료
                                     </a>
                                    
@@ -93,6 +93,10 @@
                                     <div id="write_area">
                                         <form enctype="multipart/form-data" action="write_ok.php?board_id=<?echo $board_id;?>" method="post">
                                             <div id="in_title">
+                                                <input type="text" placeholder="제목">
+                                            </div>
+                                            <hr>
+                                            <div>
                                                 <form rows="1" cols="55" maxlength="200">
                                                   <select name="language" >
                                                     <option value="none">=== 선택 ===</option>
@@ -103,8 +107,11 @@
                                                     <option value="spanish">기타</option>
                                                   </select>
                                                 </form>
-                                                <hr>
+                                            </div>
+                                            <hr>
+                                            <div>
                                                 <form>
+                
                                                     <div id="box">
                                                         <input type="text" placeholder="필수재료"> 
                                                           <select name="language" >
@@ -129,7 +136,6 @@
                                                     }
                                                 </script>
                                             </div>
-                         
                                             <div class="wi_line"></div>
                                             <div id="in_content">
                                                 <textarea name="content" id="ucontent"  class="textarea" style="width: 80%;" placeholder="조리과정" required></textarea>
