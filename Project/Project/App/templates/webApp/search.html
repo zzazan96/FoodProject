@@ -87,47 +87,13 @@
                                     <a href="#" class="button">다음</a>
                             </div>
                             <div class="card-body">
-                                <div class="container">
+                                <div class="container"> 
 
-                                    <div class="item">
-                                      <span class="icon">가</span>
-                                      <span class="name">가지</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">감</span>
-                                      <span class="name">감자</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">홍</span>
-                                      <span class="name">홍고추</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">능</span>
-                                      <span class="name">능이버섯</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">애</span>
-                                      <span class="name">애호박</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">당</span>
-                                      <span class="name">당근</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">양</span>
-                                      <span class="name">양파</span>
-                                    </div>
-
-                                    <div class="item">
-                                      <span class="icon">깐</span>
-                                      <span class="name">깐마늘</span>
-                                    </div>
+                                    {% for Ingredient in Ingredients %}
+                                        <div class="item">
+                                            <span class="name">{{ Ingredient.ingrename }}</span>
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                             <script type="text/javascript">

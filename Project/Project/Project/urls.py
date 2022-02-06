@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from App import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.login, name='login'),
+    path('register/login/',views.login, name='login'),
+    path('logout/', views.logout, name="logout"),
     path('save/', views.save, name='save'),
     path('Userlist/', views.Userlist, name='Userlist'),
     path('Userlist/listsave/', views.listsave, name='listsave'),
