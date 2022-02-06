@@ -125,7 +125,9 @@ class DjangoSession(models.Model):
 class Imagetbl(models.Model):
     imageid = models.IntegerField(db_column='imageID', primary_key=True)  # Field name made lowercase.
     imagename = models.CharField(db_column='imageName', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    imagepath = models.CharField(db_column='imagePath', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    data = models.TextField(db_column='Data', blank=True, null=True)  # Field name made lowercase.
+    recipeid = models.ForeignKey('Recipetbl', models.DO_NOTHING, db_column='recipeID', blank=True, null=True)  # Field name made lowercase.
+    userrecipeid = models.ForeignKey('Userrecipetbl', models.DO_NOTHING, db_column='userRecipeID', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -159,7 +161,6 @@ class Recipetbl(models.Model):
     recipename = models.CharField(db_column='recipeName', max_length=20)  # Field name made lowercase.
     recipedetail = models.TextField(db_column='recipeDetail')  # Field name made lowercase.
     recipetype = models.CharField(db_column='recipeType', max_length=5)  # Field name made lowercase.
-    recipeimage = models.ForeignKey(Imagetbl, models.DO_NOTHING, db_column='recipeImage', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -185,7 +186,6 @@ class Userrecipetbl(models.Model):
     recipename = models.CharField(db_column='recipeName', max_length=45)  # Field name made lowercase.
     recipedetail = models.TextField(db_column='recipeDetail')  # Field name made lowercase.
     recipetype = models.CharField(db_column='recipeType', max_length=5, blank=True, null=True)  # Field name made lowercase.
-    recipeimage = models.ForeignKey(Imagetbl, models.DO_NOTHING, db_column='recipeImage', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
