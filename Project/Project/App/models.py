@@ -161,6 +161,7 @@ class Recipetbl(models.Model):
     recipename = models.CharField(db_column='recipeName', max_length=20)  # Field name made lowercase.
     recipedetail = models.TextField(db_column='recipeDetail')  # Field name made lowercase.
     recipetype = models.CharField(db_column='recipeType', max_length=5)  # Field name made lowercase.
+    least = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
