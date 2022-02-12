@@ -161,6 +161,7 @@ class Recipetbl(models.Model):
     recipename = models.CharField(db_column='recipeName', max_length=20)  # Field name made lowercase.
     recipedetail = models.TextField(db_column='recipeDetail')  # Field name made lowercase.
     recipetype = models.CharField(db_column='recipeType', max_length=5)  # Field name made lowercase.
+    least = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -196,7 +197,7 @@ class Usertbl(models.Model):
     usercode = models.AutoField(db_column='userCode', primary_key=True)  # Field name made lowercase.
     username = models.CharField(db_column='userName', max_length=10, blank=True, null=True)  # Field name made lowercase.
     useremail = models.CharField(db_column='userEmail', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    userpassword = models.CharField(db_column='userPassword', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    userpassword = models.CharField(db_column='userPassword', max_length=255, blank=True, null=True)  # Field name made lowercase.
     userid = models.CharField(db_column='userID', max_length=45, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
