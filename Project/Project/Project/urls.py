@@ -29,5 +29,8 @@ urlpatterns = [
     path('save/search/', views.search, name='search'),
     path('save/savefix/', views.savefix, name='savefix'),
     path('mainlist/',views.mainlist, name='mainlist'),
+    path('mainlist/list/',views.list, name='list'),
+    path('Userlist/list/',views.list, name='list'),
     path('register/',views.register, name='register'),
+    
 ]

@@ -36,6 +36,9 @@ def listsave(request):
 def register(request):  
     return render(request, 'webApp/register.html')
 
-def listview(request):  
-    return render(request, 'webApp/listview.html')
+def list(request):  
+    return render(request, 'webApp/list.html')
+
+def list2(request):  
+    return render(request, 'webApp/list2.html')
     

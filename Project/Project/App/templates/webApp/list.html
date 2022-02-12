@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -11,6 +10,8 @@
         <link rel="stylesheet" href="../../static/CSS/styles.css">
         <link rel="stylesheet" href="../../static/CSS/test.css">
         <link rel="stylesheet" href="../../static/CSS/menu1.css">
+        <link rel="stylesheet" href="../../static/CSS/view.css">
+        <link rel="stylesheet" href="../../static/CSS/media.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -82,56 +83,56 @@
                         <hr>
 
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <div class="Menu1">
-                                    <ul>
-                                        <li><a href="#">전체</a></li>
-                                        <li><a href="#">한식</a></li>
-                                        <li><a href="#">중식</a></li>
-                                        <li><a href="#">일식</a></li>
-                                        <li><a href="#">양식</a></li>
-                                        <li><a href="#">기타</a></li>
-                                    </ul>
-                                </div>    
+                            <div class="card-header">   
 
                             </div>
                             <div class="card-body">
                                 <div class="container">
-                                    <input onkeyup="filter()" type="text" id="value" placeholder="검색">
-                                    <a href="/Userlist/listsave" class="button" style="float: right;">레시피 등록</a>
-
-                                    <div class="item">
-                                        <span class="icon">짜</span>
-                                        <a class="name" href="/Userlist/list">짜장면</a>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">김</span>
-                                        <span class="name">김치찌개</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">된</span>
-                                        <span class="name">된장찌개</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">제</span>
-                                        <span class="name">제육볶음</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">소</span>
-                                        <span class="name">소불고기덮밥</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">부</span>
-                                        <span class="name">부대찌개</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">콩</span>
-                                        <span class="name">콩나물무침</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">김</span>
-                                        <span class="name">김치</span>
-                                      </div>
+                                    <div class="board_view_wrap">
+                                        <div class="board_view">
+                                            <div class="title">
+                                                짜장면
+                                            </div>
+                                            <div>
+                                            </div>
+                                            <div class="cont">
+                                                1. 고기 200g에 후춧가루 야간, 청주나 소주 1스푼을 뿌린 후 
+                                                조물물 밑간을 해줍니다.
+                                                <br>
+                                                2. 프라이팬을 중불 예열해준 뒤  식용유 1스푼을 두른후 
+                                                춘장 1스푼을 넣고 잘 볶아 줍니다.
+                                                (눌러붙지 않게 약 3분간)
+                                                <br>
+                                                3. 짜장에 들어갈 채소를 채썰어 준비합니다. 
+                                                (양파, 대파, 양배추 등등)
+                                                <br>
+                                                4. 채소 준비가 완료되었다면 전분물을 준비합니다.
+                                                비율은 물1스푼 전분가루 1스푼
+                                                <br>
+                                                5. 프라이팬을 중불로 예열후 식용유를 두르고 파와 
+                                                다진마늘 한스푼을 넣고 잘 볶아 줍니다.
+                                                <br>
+                                                6. 밑간해둔 돼지고기를 넣고 볶아주면 되는데
+                                                생강 즙이나 생강가루와 함께 볶아주면 더 좋습니다.
+                                                <br>
+                                                7. 돼지고기가 하얗게 익으면 채썬 양파를 넣고 볶아줍니다.
+                                                <br>
+                                                8. 야채의 숨이 조금 줄으면 
+                                                미리 볶아놓은 춘장, 굴소스 1스푼, 
+                                                설탕1스푼 넣고 재료들이 잘섞이도록 볶아줍니다.
+                                                <br>
+                                                9. 양념이 골고루 섞이면 물 1컵을 붓고 잘저어줍니다.
+                                                <br>
+                                                10. 국물이 긇어오르면 전분물을 조금씩 뿌려주며 농도를 맞추면 완성
+                            
+                            
+                                            </div>
+                                        </div>
+                                        <div class="bt_wrap">
+                                            <a href="/mainlist" class="on">목록</a>
+                                            <a href=" ">만들기</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <script type="text/javascript">
