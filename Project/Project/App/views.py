@@ -76,7 +76,6 @@ def mainlist(request):
 def listsave(request):
     return render(request, 'webApp/listsave.html')
 
-<<<<<<< HEAD
 def register(request):  
     return render(request, 'webApp/register.html')
 
@@ -85,8 +84,4 @@ def list(request):
 
 def list2(request):  
     return render(request, 'webApp/list2.html')
-=======
-def listview(request):  
-    return render(request, 'webApp/listview.html')
->>>>>>> df51f70310ffef4ab9e9f781217ad2e5108b9f0c
     
