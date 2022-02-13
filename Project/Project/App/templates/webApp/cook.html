@@ -86,9 +86,12 @@
 
                         <div class="card mb-4">
                             <div class="card-header">
-                                <div class="Menu1">
-                                        <button>리스트불러오기</button>
-                                </div>    
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <div class="Menu1">
+                                        <button type="submit" id="call" value="1">리스트불러오기</button>
+                                    </div>
+                                </form>    
                             </div>
                             <div class="card-body">
                                 <div class="container">
