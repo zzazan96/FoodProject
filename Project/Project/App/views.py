@@ -18,7 +18,7 @@ def login(request):
         else:
             User = get_object_or_404(Usertbl,userid=userID)
             if check_password(userpassword, User.userpassword):
-                user_code = User.usercode
+                user_code = User.userid
                 request.session['user'] = user_code
                 return redirect('mainlist')
             else:
