@@ -6,6 +6,7 @@ from .models import Ingredienttbl
 from .models import Usertbl
 from .models import Recipetbl
 from .models import Listtbl
+from .models import Cooktbl
 from .models import Recipeingredienttbl
 
 
@@ -62,10 +63,18 @@ def save(request):
     Lists = Listtbl.objects.all()
     return render(request, 'webApp/save.html', {'Lists': Lists})
        
-def savefix(request):
+def savefix(request): 
     Lists = Listtbl.objects.all()
-    return render(request, 'webApp/savefix.html', {'Lists': Lists})
-
+    if request.method == 'GET':
+        return render(request, 'webApp/savefix.html', {'Lists': Lists})
+    elif request.method == 'POST':
+        listid = request.POST.get('pk',None)
+        volume = request.POST.get('p_num1',None)
+        fixlist = Listtbl.objects.get(listid=listid)
+        fixlist.volume = volume
+        fixlist.save()
+        return render(request, 'webApp/savefix.html', {'Lists': Lists})
+    
 def search(request):
     Ingredients = Ingredienttbl.objects.all()
     return render(request, 'webApp/search.html', {'Ingredients':Ingredients})
@@ -98,6 +107,10 @@ def list2(request):
     return render(request, 'webApp/list2.html')
 
 def cook(request):
-    Recipes = Recipetbl.objects.all()  
-    return render(request, 'webApp/cook.html', {'Recipes':Recipes})
+    if request.method == 'GET':         
+        return render(request, 'webApp/cook.html')
+    elif request.method == 'POST':
+        Recipes = Cooktbl.objects.all()
+        return render(request, 'webApp/cook.html', {'Recipes':Recipes})
+    
     

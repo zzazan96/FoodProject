@@ -77,6 +77,17 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class Cooktbl(models.Model):
+    recipeid = models.AutoField(db_column='recipeID', primary_key=True)  # Field name made lowercase.
+    recipename = models.CharField(db_column='recipeName', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    recipedetail = models.TextField(db_column='recipeDetail', blank=True, null=True)  # Field name made lowercase.
+    recipetype = models.CharField(db_column='recipeType', max_length=5, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'cookTBL'
+
+
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -173,7 +184,7 @@ class Recipeingredienttbl(models.Model):
     recipeid = models.ForeignKey(Recipetbl, models.DO_NOTHING, db_column='recipeID', blank=True, null=True)  # Field name made lowercase.
     ingrecode = models.ForeignKey(Ingredienttbl, models.DO_NOTHING, db_column='ingreCode', blank=True, null=True)  # Field name made lowercase.
     volume = models.FloatField(blank=True, null=True)
-    recipetype = models.CharField(db_column='recipeType', max_length=3, blank=True, null=True)  # Field name made lowercase.
+    recipetype = models.IntegerField(db_column='recipeType', blank=True, null=True)  # Field name made lowercase.
     unit = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
