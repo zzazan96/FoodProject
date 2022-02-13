@@ -30,7 +30,7 @@ urlpatterns = [
     path('save/savefix/', views.savefix, name='savefix'),
     path('mainlist/',views.mainlist, name='mainlist'),
     path('mainlist/list/',views.list, name='list'),
-    path('Userlist/list2/',views.list2, name='list2'),
+    path('mainlist/list2/',views.list2, name='list2'),
     path('register/',views.register, name='register'),
     path('cook/',views.cook, name='cook'),
 ]
