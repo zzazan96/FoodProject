@@ -89,22 +89,13 @@ def mainlist(request):
 def listsave(request):
     return render(request, 'webApp/listsave.html')
 
-def list(request):
-    if request.method == 'GET':
-        return render(request, 'webApp/list.html')
-    elif request.method == 'POST':
-        recipeID = request.POST.get('recipeid', None)
-        print(recipeID)
-        Recipe = get_object_or_404(Recipetbl,recipeid=recipeID)
-        data = {
-            'recipeid': Recipe.recipeid,
-            'recipedetail': Recipe.recipedetail,
-            'recipename': Recipe.recipename
-        }        
-        return render(request, 'webApp/list.html', data)
+def list1(request):
+    recipe = Recipetbl.objects.get(recipeid=1)
+    return render(request, 'webApp/list1.html', {'recipe':recipe})
 
-def list2(request):  
-    return render(request, 'webApp/list2.html')
+def list2(request):
+    recipe = Recipetbl.objects.get(recipeid=2)  
+    return render(request, 'webApp/list2.html', {'recipe':recipe})
 
 def cook(request):
     if request.method == 'GET':         
