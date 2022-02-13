@@ -141,19 +141,19 @@ def cook(request):
         return render(request, 'webApp/cook.html', {'Recipes':Recipes})
 
 def Clist1(request):
-    recipe = Recipetbl.objects.get(recipeid=8)  
+    recipe = Cooktbl.objects.get(recipeid=1)  
     return render(request, 'webApp/Clist1.html', {'recipe':recipe})
 
 def Clist2(request):
-    recipe = Recipetbl.objects.get(recipeid=8)  
+    recipe = Cooktbl.objects.get(recipeid=2)  
     return render(request, 'webApp/Clist2.html', {'recipe':recipe})
 
 def Clist3(request):
-    recipe = Recipetbl.objects.get(recipeid=8)  
+    recipe = Cooktbl.objects.get(recipeid=3)  
     return render(request, 'webApp/Clist3.html', {'recipe':recipe})
 
 def Clist4(request):
-    recipe = Recipetbl.objects.get(recipeid=8)  
+    recipe = Cooktbl.objects.get(recipeid=4)  
     return render(request, 'webApp/Clist4.html', {'recipe':recipe})
 
 def searchplus(request):
