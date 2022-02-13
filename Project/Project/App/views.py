@@ -61,10 +61,10 @@ def logout(request):
 def save(request):
     Lists = Listtbl.objects.all()
     return render(request, 'webApp/save.html', {'Lists': Lists})
-    
-        
+       
 def savefix(request):
-    return render(request, 'webApp/savefix.html')
+    Lists = Listtbl.objects.all()
+    return render(request, 'webApp/savefix.html', {'Lists': Lists})
 
 def search(request):
     Ingredients = Ingredienttbl.objects.all()
