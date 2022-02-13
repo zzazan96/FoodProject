@@ -100,4 +100,7 @@ def list2(request):
 def cook(request):
     Recipes = Recipetbl.objects.all()  
     return render(request, 'webApp/cook.html', {'Recipes':Recipes})
+
+def searchplus(request):
+    return render(request, 'webApp/searchplus.html')
     

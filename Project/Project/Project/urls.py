@@ -26,6 +26,7 @@ urlpatterns = [
     path('Userlist/', views.Userlist, name='Userlist'),
     path('Userlist/listsave/', views.listsave, name='listsave'),
     path('save/search/', views.search, name='search'),
+    path('save/search/searchplus/', views.searchplus, name='searchplus'),
     path('save/savefix/', views.savefix, name='savefix'),
     path('mainlist/',views.mainlist, name='mainlist'),
     path('mainlist/list/',views.list, name='list'),
