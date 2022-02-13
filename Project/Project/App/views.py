@@ -97,6 +97,10 @@ def list2(request):
     recipe = Recipetbl.objects.get(recipeid=2)  
     return render(request, 'webApp/list2.html', {'recipe':recipe})
 
+def list3(request):
+    recipe = Recipetbl.objects.get(recipeid=3)  
+    return render(request, 'webApp/list2.html', {'recipe':recipe})
+
 def cook(request):
     if request.method == 'GET':         
         return render(request, 'webApp/cook.html')

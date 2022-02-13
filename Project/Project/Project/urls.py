@@ -31,6 +31,7 @@ urlpatterns = [
     path('mainlist/',views.mainlist, name='mainlist'),
     path('mainlist/list1/',views.list1, name='list1'),
     path('mainlist/list2/',views.list2, name='list2'),
+    path('mainlist/list3/',views.list3, name='list3'),
     path('register/',views.register, name='register'),
     path('cook/',views.cook, name='cook'),
 ]
