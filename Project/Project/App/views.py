@@ -84,4 +84,7 @@ def list(request):
 
 def list2(request):  
     return render(request, 'webApp/list2.html')
+
+def cook(request):  
+    return render(request, 'webApp/cook.html')
     

@@ -21,6 +21,7 @@ from App import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.login, name='login'),
+    path('register/login/',views.login, name='login'),
     path('logout/', views.logout, name="logout"),
     path('save/', views.save, name='save'),
     path('Userlist/', views.Userlist, name='Userlist'),
@@ -29,7 +30,8 @@ urlpatterns = [
     path('save/savefix/', views.savefix, name='savefix'),
     path('mainlist/',views.mainlist, name='mainlist'),
     path('mainlist/list/',views.list, name='list'),
-    path('Userlist/list/',views.list, name='list'),
+    path('Userlist/list2/',views.list2, name='list2'),
     path('register/',views.register, name='register'),
+    path('cook/',views.cook, name='cook'),
     
 ]
