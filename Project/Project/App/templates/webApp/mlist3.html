@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -11,6 +10,8 @@
         <link rel="stylesheet" href="../../static/CSS/styles.css">
         <link rel="stylesheet" href="../../static/CSS/test.css">
         <link rel="stylesheet" href="../../static/CSS/menu1.css">
+        <link rel="stylesheet" href="../../static/CSS/view.css">
+        <link rel="stylesheet" href="../../static/CSS/media.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -23,9 +24,6 @@
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
             </form>
-            <div class="mx-3">
-                <span class="name">{{User.username}}</span>
-            </div>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -33,7 +31,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">설정</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a></li>
+                        <li><a class="dropdown-item" href="{% url 'login' %}">로그아웃</a></li>
                     </ul>
                 </li>
             </ul>
@@ -67,7 +65,7 @@
                                     </a>
                                    
                                     <a class="nav-link collapsed" href="/cook">
-                                        요리하기
+                                        요리하기    
                                     </a>
     
                                 </nav>
@@ -85,24 +83,27 @@
                         <hr>
 
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <div class="Menu1">
-                                        <button type="submit" id="call" value="1">리스트불러오기</button>
-                                    </div>
-                                </form>    
+                            <div class="card-header">   
+
                             </div>
                             <div class="card-body">
                                 <div class="container">
-                                    <input onkeyup="filter()" type="text" id="value" placeholder="검색">
-                                </div>
-                                <div class="container">
-                                    {% for Recipe in Recipes %}
-                                        <div class="item">
-                                            <a class="name" href= "/cook/Clist{{Recipe.recipeid}}" role="button">{{ Recipe.recipename }}</a>
+                                    <div class="board_view_wrap">
+                                        <div class="board_view">
+                                            <div class="title">
+                                                {{recipe.recipename}}
+                                            </div>
+                                            <div>
+                                            </div>
+                                            <div class="cont" style="white-space: pre-line;">
+                                                {{recipe.recipedetail}}                            
+                                            </div>
                                         </div>
-                                    {% endfor %}
+                                        <div class="bt_wrap">
+                                            <a href="/mainlist" class="on">목록</a>
+                                            <a href=" ">만들기</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <script type="text/javascript">

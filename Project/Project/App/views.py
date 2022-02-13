@@ -82,24 +82,56 @@ def search(request):
 def Userlist(request):
     return render(request, 'webApp/Userlist.html')
 
-def mainlist(request):    
-    Recipes = Recipetbl.objects.all()
-    return render(request, 'webApp/mainlist.html', {'Recipes':Recipes})
+def Ulist1(request):
+    recipe = Recipetbl.objects.get(recipeid=1)
+    return render(request, 'webApp/Ulist1.html', {'recipe':recipe})
+
+def Ulist2(request):
+    recipe = Recipetbl.objects.get(recipeid=1)
+    return render(request, 'webApp/Ulist2.html', {'recipe':recipe})
+
+def Ulist3(request):
+    recipe = Recipetbl.objects.get(recipeid=1)
+    return render(request, 'webApp/Ulist3.html', {'recipe':recipe})
 
 def listsave(request):
     return render(request, 'webApp/listsave.html')
 
-def list1(request):
+def mainlist(request):    
+    Recipes = Recipetbl.objects.all()
+    return render(request, 'webApp/mainlist.html', {'Recipes':Recipes})
+
+def mlist1(request):
     recipe = Recipetbl.objects.get(recipeid=1)
-    return render(request, 'webApp/list1.html', {'recipe':recipe})
+    return render(request, 'webApp/mlist1.html', {'recipe':recipe})
 
-def list2(request):
+def mlist2(request):
     recipe = Recipetbl.objects.get(recipeid=2)  
-    return render(request, 'webApp/list2.html', {'recipe':recipe})
+    return render(request, 'webApp/mlist2.html', {'recipe':recipe})
 
-def list3(request):
+def mlist3(request):
     recipe = Recipetbl.objects.get(recipeid=3)  
-    return render(request, 'webApp/list2.html', {'recipe':recipe})
+    return render(request, 'webApp/mlist3.html', {'recipe':recipe})
+
+def mlist4(request):
+    recipe = Recipetbl.objects.get(recipeid=4)  
+    return render(request, 'webApp/mlist4.html', {'recipe':recipe})
+
+def mlist5(request):
+    recipe = Recipetbl.objects.get(recipeid=5)  
+    return render(request, 'webApp/mlist5.html', {'recipe':recipe})
+
+def mlist6(request):
+    recipe = Recipetbl.objects.get(recipeid=6)  
+    return render(request, 'webApp/mlist6.html', {'recipe':recipe})
+
+def mlist7(request):
+    recipe = Recipetbl.objects.get(recipeid=7)  
+    return render(request, 'webApp/mlist7.html', {'recipe':recipe})
+
+def mlist8(request):
+    recipe = Recipetbl.objects.get(recipeid=8)  
+    return render(request, 'webApp/mlist8.html', {'recipe':recipe})
 
 def cook(request):
     if request.method == 'GET':         
@@ -107,6 +139,22 @@ def cook(request):
     elif request.method == 'POST':
         Recipes = Cooktbl.objects.all()
         return render(request, 'webApp/cook.html', {'Recipes':Recipes})
+
+def Clist1(request):
+    recipe = Recipetbl.objects.get(recipeid=8)  
+    return render(request, 'webApp/Clist1.html', {'recipe':recipe})
+
+def Clist2(request):
+    recipe = Recipetbl.objects.get(recipeid=8)  
+    return render(request, 'webApp/Clist2.html', {'recipe':recipe})
+
+def Clist3(request):
+    recipe = Recipetbl.objects.get(recipeid=8)  
+    return render(request, 'webApp/Clist3.html', {'recipe':recipe})
+
+def Clist4(request):
+    recipe = Recipetbl.objects.get(recipeid=8)  
+    return render(request, 'webApp/Clist4.html', {'recipe':recipe})
 
 def searchplus(request):
     return render(request, 'webApp/searchplus.html')
