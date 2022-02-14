@@ -108,35 +108,45 @@
                                             <div class="sum">등록날짜</div>
                                         </div>
                                         <div class="subdiv">
-                        
                                             <div class="basketcmd">삭제</div>
                                         </div>
                                         <div class="split"></div>
                                     </div>
                                     {% for List in Lists %}
-                                    <div class="row data">
-                                        <div class="subdiv">
-                                            <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
-                                            <div class="pname">
-                                                <span>{{List.ingrecode.ingrename}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="subdiv">
-                                            <div class="num">
-                                                <div class="updown">
-                                                    <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
-                                                    <input type="text" name="p_num1" id="p_num1" size="1" maxlength="1" class="p_num" value="{{List.volume}}" onkeyup="javascript:basket.changePNum(1);" style="font-size: 10px; line-height: 10px;">
-                                                    <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <div style="display:none">
+                                            <input type="text" id="listid" name="listid" value="{{List.listid}}">
+                                        </div> 
+                                        <div class="row data">
+                                            <div class="subdiv">
+                                                <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
+                                                <div class="pname">
+                                                    <span>{{List.ingrecode.ingrename}}</span>
                                                 </div>
                                             </div>
-                                            <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">22년01월06일</div>
-                                            <div class="sum">21년12월27일</div>
+                                            <div class="subdiv">
+                                                <div class="num">
+                                                    <div class="updown">
+                                                        <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+                                                        <input type="text" name="p_num1" id="p_num1" size="1" maxlength="1" class="p_num" placeholder="{{List.volume}}" onkeyup="javascript:basket.changePNum(1);" style="font-size: 10px; line-height: 10px;">
+                                                        <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">22년01월06일</div>
+                                                <div class="sum">21년12월27일</div>
+                                            </div>
+                                            <div class="subdiv">
+                                                <div class="basketcmd">
+                                                    <button type="submit">적용</button>
+                                                </div>
+                                                <div class="basketcmd">
+                                                    <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="subdiv">
-                                            <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
+                                        {% endfor %}
+                                    </form>
                                 </div>
                                 <div class="right-align basketrowcmd">
                                         <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delCheckedItem();">선택식재삭제</a>
@@ -171,7 +181,20 @@
                                               this.totalPrice = 0;
                                               this.reCalc();
                                               this.updateUI();
-                                        }
+                                        },
+                                        //재계산
+                                        reCalc: function(){
+                                            this.totalCount = 0;
+                                            this.totalPrice = 0;
+                                            document.querySelectorAll(".p_num").forEach(function (item) {
+                                                if(item.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.firstElementChild.checked == true){
+                                                    var count = parseInt(item.getAttribute('value'));
+                                                    this.totalCount += count;
+                                                    var price = item.parentElement.parentElement.previousElementSibling.firstElementChild.getAttribute('value');
+                                                    this.totalPrice += count * price;
+                                                }
+                                            }, this); // forEach 2번째 파라메터로 객체를 넘겨서 this 가 객체리터럴을 가리키도록 함. - thisArg
+                                        },
                                         //화면 업데이트
                                         updateUI: function () {
                                             document.querySelector('#sum_p_num').textContent = '상품갯수: ' + this.totalCount.formatNumber() + '개';
@@ -183,7 +206,7 @@
                                             var p_num = parseInt(item.getAttribute('value'));
                                             var newval = event.target.classList.contains('up') ? p_num+1 : event.target.classList.contains('down') ? p_num-1 : event.target.value;
                                             
-                                            if (parseInt(newval) < 1.0 || parseInt(newval) > 999.0) { return false; }
+                                            if (parseInt(newval) < 1 || parseInt(newval) > 99) { return false; }
                                     
                                             item.setAttribute('value', newval);
                                             item.value = newval;
