@@ -155,6 +155,30 @@ class Ingredienttbl(models.Model):
         db_table = 'ingredientTBL'
 
 
+class List2Tbl(models.Model):
+    listid = models.AutoField(db_column='listID', primary_key=True)  # Field name made lowercase.
+    usercode = models.ForeignKey('Usertbl', models.DO_NOTHING, db_column='userCode', blank=True, null=True)  # Field name made lowercase.
+    ingrecode = models.ForeignKey(Ingredienttbl, models.DO_NOTHING, db_column='ingreCode', blank=True, null=True)  # Field name made lowercase.
+    volume = models.FloatField(blank=True, null=True)
+    unit = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'list2TBL'
+
+
+class List3Tbl(models.Model):
+    listid = models.AutoField(db_column='listID', primary_key=True)  # Field name made lowercase.
+    usercode = models.ForeignKey('Usertbl', models.DO_NOTHING, db_column='userCode', blank=True, null=True)  # Field name made lowercase.
+    ingrecode = models.ForeignKey(Ingredienttbl, models.DO_NOTHING, db_column='ingreCode', blank=True, null=True)  # Field name made lowercase.
+    volume = models.FloatField(blank=True, null=True)
+    unit = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'list3TBL'
+
+
 class Listtbl(models.Model):
     listid = models.IntegerField(db_column='listID', primary_key=True)  # Field name made lowercase.
     usercode = models.ForeignKey('Usertbl', models.DO_NOTHING, db_column='userCode', blank=True, null=True)  # Field name made lowercase.
