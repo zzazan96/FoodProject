@@ -6,8 +6,8 @@ from .models import Ingredienttbl
 from .models import Usertbl
 from .models import Recipetbl
 from .models import Listtbl
-from .models import List2tbl
-from .models import List3tbl
+from .models import List2Tbl
+from .models import List3Tbl
 from .models import Cooktbl
 from .models import Recipeingredienttbl
 
