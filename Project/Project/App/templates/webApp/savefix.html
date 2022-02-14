@@ -171,7 +171,8 @@
                                               this.totalPrice = 0;
                                               this.reCalc();
                                               this.updateUI();
-                                        }
+                                        },
+
                                         //화면 업데이트
                                         updateUI: function () {
                                             document.querySelector('#sum_p_num').textContent = '상품갯수: ' + this.totalCount.formatNumber() + '개';

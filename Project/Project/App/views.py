@@ -6,6 +6,8 @@ from .models import Ingredienttbl
 from .models import Usertbl
 from .models import Recipetbl
 from .models import Listtbl
+from .models import List2tbl
+from .models import List3tbl
 from .models import Cooktbl
 from .models import Recipeingredienttbl
 
@@ -62,6 +64,14 @@ def logout(request):
 def save(request):
     Lists = Listtbl.objects.all()
     return render(request, 'webApp/save.html', {'Lists': Lists})
+
+def save2(request):
+    Lists = List2tbl.objects.all()
+    return render(request, 'webApp/save2.html', {'Lists': Lists})
+
+def save3(request):
+    Lists = List3tbl.objects.all()
+    return render(request, 'webApp/save3.html', {'Lists': Lists})
        
 def savefix(request): 
     Lists = Listtbl.objects.all()

@@ -86,7 +86,7 @@
                                 <div style="position: relative; left: -30;">
                                     <i class="fas fa-table me-1"></i>
                                 나의 냉장고
-                                <button style="float: right">저장</button>
+                                <button style="float: right" onclick="location.href='/save2'">저장</button>
                                 </div>
                                 <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 
@@ -115,12 +115,11 @@
                                         </div>
                                         <div class="split"></div>
                                     </div>
-                                    {% for List in Lists %}
                                     <div class="row data">
                                         <div class="subdiv">
                                             <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
                                             <div class="pname">
-                                                <span>{{List.ingrecode.ingrename}}</span>
+                                                <span>양파</span>
                                             </div>
                                         </div>
                                         <div class="subdiv">
@@ -138,7 +137,6 @@
                                             <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
                                         </div>
                                     </div>
-                                    {% endfor %}
                                 </div>
                                 <div class="right-align basketrowcmd">
                                         <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delCheckedItem();">선택식재삭제</a>
