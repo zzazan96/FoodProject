@@ -66,11 +66,11 @@ def save(request):
     return render(request, 'webApp/save.html', {'Lists': Lists})
 
 def save2(request):
-    Lists = List2tbl.objects.all()
+    Lists = List2Tbl.objects.all()
     return render(request, 'webApp/save2.html', {'Lists': Lists})
 
 def save3(request):
-    Lists = List3tbl.objects.all()
+    Lists = List3Tbl.objects.all()
     return render(request, 'webApp/save3.html', {'Lists': Lists})
        
 def savefix(request): 
