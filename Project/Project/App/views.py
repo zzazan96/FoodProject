@@ -79,14 +79,12 @@ def savefix(request):
         return render(request, 'webApp/savefix.html', {'Lists': Lists})
     elif request.method == 'POST':
         Lists = Listtbl.objects.all()
-        listid = request.POST.get('listid',None)
+        listID = request.POST.get('listid',None)
         volume = request.POST.get('p_num1',None)
-        fixlist = Listtbl.objects.filter(listid=listid)
-        fixlist.update(
-            volume = volume
-        )
+        fixlist = Listtbl.objects.filter(listid=listID)
+        fixlist.volume = volume
         fixlist.save()
-        return render(request, 'webApp/savefix.html', {'Lists': Lists})
+        return render(request, 'webApp/savefix.html', {'Lists': Lists}, {'fixlist':fixlist})
     
 def search(request):
     Ingredients = Ingredienttbl.objects.all()
