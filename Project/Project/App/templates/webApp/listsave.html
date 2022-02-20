@@ -114,12 +114,7 @@
                 
                                                     <div id="box">
                                                         <input type="text" placeholder="필수재료"> 
-                                                          <select name="language" >
-                                                            <option value="select">=== 선택 ===</option>
-                                                            <option value="count">개</option>
-                                                            <option value="kg">kg</option>
-                                                            <option value="g">g</option>
-                                                          </select>
+                                                        <input type="text" placeholder="단위">  
                                                         <input type="button" value="+" onclick="add_textbox()">
                                                     </div>
                                                 </form>
@@ -128,7 +123,7 @@
                                                     const add_textbox = () => {
                                                         const box = document.getElementById("box");
                                                         const newP = document.createElement('p');
-                                                        newP.innerHTML = "<input type='text'> <select name='language'> <option value = '== 선택 =='> <option value= '개'> <option value= 'kg'> <option value= 'g'> <input type='button' value='-' onclick='remove(this)'>";
+                                                        newP.innerHTML = "<input type='text' placeholder='필수재료'> <input type='text' placeholder='단위'> <input type='button' value='-' onclick='remove(this)'>";
                                                         box.appendChild(newP);
                                                     }
                                                     const remove = (obj) => {
