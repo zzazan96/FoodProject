@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../../static/CSS/styles.css">
         <link rel="stylesheet" href="../../static/CSS/test.css">
         <link rel="stylesheet" href="../../static/CSS/10-11.css">
-        <link rel="stylesheet" href="{% static 'CSS/10-11.css' %}">
+    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -88,7 +88,7 @@
                                 <input onkeyup="filter()" type="text" id="value" placeholder="검색">
                             </div>
                             <div class="card-body">
-                                <div class="container"> 
+                                <div class="container" style="overflow:scroll; height:500px"> 
 
                                     {% for Ingredient in Ingredients %}
                                         <div class="item">
@@ -129,33 +129,33 @@
                                 </form>
 
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="overflow:scroll; height:520px">
                                 <style>
                                     .
                                 </style>
                                 <table>
                                 <div class="basketdiv" id="basket">   
-                                    <div class="row head">
-                                        <div class="subdiv">
+                                    <div class="row head" style="--bs-gutter-x: 0rem;">
+                                        <div class="subdiv" style="width: 40%;">
                                             <div class="check">선택</div>
                                             <div class="pname">품명</div>
                                         </div>
-                                        <div class="subdiv">
+                                        <div class="subdiv" style="width: 40%;">
                                             <div class="num">수량</div>
                                         </div>
-                                        <div class="subdiv">
+                                        <div class="subdiv" style="width: 20%;">
                                             <div class="basketcmd">삭제</div>
                                         </div>
                                         <div class="split"></div>
                                     </div>
-                                    <div class="row data">
-                                        <div class="subdiv">
+                                    <div class="row data" style="--bs-gutter-x: 0rem;">
+                                        <div class="subdiv" style="width: 40%;">
                                             <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
                                             <div class="pname">
                                                 <span>양파</span>
                                             </div>
                                         </div>
-                                        <div class="subdiv">
+                                        <div class="subdiv" style="width: 40%;">
                                             <div class="num">
                                                 <div class="updown">
                                                     <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
@@ -164,7 +164,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="subdiv">
+                                        <div class="subdiv" style="width: 20%;">
                                             <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
                                         </div>
                                     </div>
