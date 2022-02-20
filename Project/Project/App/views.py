@@ -12,6 +12,7 @@ from .models import Cooktbl
 from .models import Recipeingredienttbl
 
 
+
 def login(request):
     if request.method == 'GET':
         return render(request, 'webApp/login.html')
@@ -24,8 +25,7 @@ def login(request):
         else:
             User = get_object_or_404(Usertbl,userid=userID)
             if check_password(userpassword, User.userpassword):
-                user_code = User.usercode
-                request.session['user'] = user_code
+                request.session['user'] = User.usercode
                 return redirect('mainlist')
             else:
                 res_data['error'] = '잘못된 아이디 또는 비밀번호입니다.'
@@ -62,7 +62,8 @@ def logout(request):
     return redirect('/')
 
 def save(request):
-    Lists = Listtbl.objects.all()
+    usercode = request.session['user']
+    Lists = Listtbl.objects.filter(usercode = usercode)
     return render(request, 'webApp/save.html', {'Lists': Lists})
 
 def save2(request):
@@ -75,10 +76,12 @@ def save3(request):
        
 def savefix(request): 
     if request.method == 'GET':
-        Lists = Listtbl.objects.all()
+        usercode = request.session['user']
+        Lists = Listtbl.objects.filter(usercode = usercode)
         return render(request, 'webApp/savefix.html', {'Lists': Lists})
     elif request.method == 'POST':
-        Lists = Listtbl.objects.all()
+        usercode = request.session['user']
+        Lists = Listtbl.objects.filter(usercode = usercode)
         listID = request.POST.get('listid',None)
         volume = request.POST.get('p_num1',None)
         fixlist = Listtbl.objects.filter(listid=listID)
