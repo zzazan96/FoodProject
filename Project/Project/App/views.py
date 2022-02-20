@@ -110,7 +110,7 @@ def Ulist3(request):
 
 def listsave(request):
     return render(request, 'webApp/listsave.html')
-
+    
 def mainlist(request):    
     Recipes = Recipetbl.objects.all()
     return render(request, 'webApp/mainlist.html', {'Recipes':Recipes})
