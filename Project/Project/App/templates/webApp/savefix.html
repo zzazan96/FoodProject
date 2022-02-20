@@ -97,18 +97,16 @@
                                 </style>
                                 <table>
                                 <div class="basketdiv" id="basket">   
-                                    <div class="row head">
-                                        <div class="subdiv">
+                                    <div class="row head" style="--bs-gutter-x: 0rem;">
+                                        <div class="subdiv" style="width: 50%;">
                                             <div class="check">선택</div>
                                             <div class="pname">품명</div>
                                         </div>
-                                        <div class="subdiv">
+                                        <div class="subdiv" style="width: 30%;">
                                             <div class="num">수량</div>
-                                            <div class="basketprice">유통기한</div>
-                                            <div class="sum">등록날짜</div>
                                         </div>
-                                        <div class="subdiv">
-                                            <div class="basketcmd">삭제</div>
+                                        <div class="subdiv" style="width: 20%;">
+                                            <div class="basketcmd">수정</div>
                                         </div>
                                         <div class="split"></div>
                                     </div>
@@ -118,23 +116,21 @@
                                         <div style="display:none">
                                             <input type="text" id="listid" name="listid" value="{{List.listid}}">
                                         </div> 
-                                        <div class="row data">
-                                            <div class="subdiv">
+                                        <div class="row data" style="--bs-gutter-x: 0rem;">
+                                            <div class="subdiv" style="width: 50%;">
                                                 <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
                                                 <div class="pname">
                                                     <span>{{List.ingrecode.ingrename}}</span>
                                                 </div>
                                             </div>
-                                            <div class="subdiv">
+                                            <div class="subdiv" style="width: 30%;">
                                                 <div class="num">
                                                     <div class="updown">
                                                         <input type="text" name="p_num1" id="p_num1" size="1" maxlength="1" class="p_num" placeholder="{{List.volume}}" onkeyup="javascript:basket.changePNum(1);" style="font-size: 10px; line-height: 10px;">
                                                     </div>
                                                 </div>
-                                                <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">22년01월06일</div>
-                                                <div class="sum">21년12월27일</div>
                                             </div>
-                                            <div class="subdiv">
+                                            <div class="subdiv" style="width: 20%;">
                                                 <div class="basketcmd">
                                                     <button type="submit">적용</button>
                                                 </div>
