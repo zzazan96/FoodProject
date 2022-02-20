@@ -13,7 +13,7 @@
         font-weight: 500;
     }
     .basketdiv .data {
-        border-bottom: 1px dashed #888;
+        border-bottom: 2px dashed #888;
         box-sizing: border-box;
         cursor: pointer;
         float: left;
@@ -31,19 +31,13 @@
         float: left;
     }
     .basketdiv .row > .subdiv:nth-child(1) {
-        width: 30%;
+        width: 40%;
     }
     .basketdiv .row > .subdiv:nth-child(2) {
-        width: 60%;
+        width: 40%;
     }
     .basketdiv .row > .subdiv:nth-child(3) {
-        width: 10%;
-    }
-    .basketdiv2 .row > .subdiv:nth-child(1) {
-        width: 60%;
-    }
-    .basketdiv2 .row > .subdiv:nth-child(2) {
-        width: 40%;
+        width: 20%;
     }
     .basketdiv .row > div > div {
         display: block;
@@ -62,50 +56,20 @@
             letter-spacing: -5px;
         }
         .basketdiv .check {
-            width: 40%;
+            width: 50%;
         }
     .basketdiv .check input[type=checkbox] {
         transform: scale(1.0);
     }
-    .basketdiv .img{
-        width: 20%;
-    }
     .basketdiv .pname{
-        width: 60%;
-    }
-    .basketdiv2 .pname {
-        width: 80%;
-    }
-    .basketdiv .basketprice {
-        width: 40%;
-    }
-    .basketdiv .num {
-        width: 20%;
-      min-width: 105px;
-    }
-    .basketdiv .sum {
-        width: 40%;
-      max-width: 120px;
-        color: #0000aa;
-    }
-    .basketdiv .point {
         width: 50%;
     }
-    .basketdiv2 .basketprice {
-        width: 30%;
+    .basketdiv .basketprice {
+        width: 100%;
     }
-
-    .basketdiv2 .num {
-        width: 25%;
-    }
-
-    .basketdiv2 .sum {
-        width: 30%;
-        color: #0000aa;
-    }
-
-    .basketdiv2 .point {
-        width: 25%;
+    .basketdiv .num {
+        width: 100%;
+      min-width: 105px;
     }
     .basketdiv .basketcmd{
         width: 100%;

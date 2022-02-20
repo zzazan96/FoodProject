@@ -113,7 +113,8 @@
                                                 <form>
                 
                                                     <div id="box">
-                                                        <input type="text" placeholder="필수재료"> 
+                                                        <input type="text" placeholder="필수재료">
+                                                        <input type="text" placeholder="수량"> 
                                                         <input type="text" placeholder="단위">  
                                                         <input type="button" value="+" onclick="add_textbox()">
                                                     </div>
@@ -123,7 +124,7 @@
                                                     const add_textbox = () => {
                                                         const box = document.getElementById("box");
                                                         const newP = document.createElement('p');
-                                                        newP.innerHTML = "<input type='text' placeholder='필수재료'> <input type='text' placeholder='단위'> <input type='button' value='-' onclick='remove(this)'>";
+                                                        newP.innerHTML = "<input type='text' placeholder='필수재료'> <input type='text' placeholder='수량'> <input type='text' placeholder='단위'> <input type='button' value='-' onclick='remove(this)'>";
                                                         box.appendChild(newP);
                                                     }
                                                     const remove = (obj) => {
