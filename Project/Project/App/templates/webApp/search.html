@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% load static %}
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -12,7 +11,6 @@
         <link rel="stylesheet" href="../../static/CSS/styles.css">
         <link rel="stylesheet" href="../../static/CSS/test.css">
         <link rel="stylesheet" href="../../static/CSS/10-11.css">
-    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -83,12 +81,15 @@
                      <div class="container-fluid px-4">
                         <hr>
 
-                        <div class="card mb-4" style="float:left; width:49%">
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <input onkeyup="filter()" type="text" id="value" placeholder="검색">
+                                <button type="button" onClick="location.href='/save/search/searchplus'">
+                                다음
+                                </button>
                             </div>
                             <div class="card-body">
-                                <div class="container" style="overflow:scroll; height:500px"> 
+                                <div class="container" style="overflow: scroll"> 
 
                                     {% for Ingredient in Ingredients %}
                                         <div class="item">
@@ -116,154 +117,9 @@
                                   }
                             </script>
                         </div>
-                        
-                        <div class="card mb-4" style="float:right; width: 49%">
-                            <div class="card-header">
-                                <div style="position: relative; left: -30;">
-                                    <i class="fas fa-table me-1"></i>
-                                나의 냉장고
-                                <button style="float: right" onclick="location.href='/save2'">저장</button>
-                                </div>
-                                <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                
-                                </form>
-
-                            </div>
-                            <div class="card-body" style="overflow:scroll; height:520px">
-                                <style>
-                                    .
-                                </style>
-                                <table>
-                                <div class="basketdiv" id="basket">   
-                                    <div class="row head" style="--bs-gutter-x: 0rem;">
-                                        <div class="subdiv" style="width: 40%;">
-                                            <div class="check">선택</div>
-                                            <div class="pname">품명</div>
-                                        </div>
-                                        <div class="subdiv" style="width: 40%;">
-                                            <div class="num">수량</div>
-                                        </div>
-                                        <div class="subdiv" style="width: 20%;">
-                                            <div class="basketcmd">삭제</div>
-                                        </div>
-                                        <div class="split"></div>
-                                    </div>
-                                    <div class="row data" style="--bs-gutter-x: 0rem;">
-                                        <div class="subdiv" style="width: 40%;">
-                                            <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
-                                            <div class="pname">
-                                                <span>양파</span>
-                                            </div>
-                                        </div>
-                                        <div class="subdiv" style="width: 40%;">
-                                            <div class="num">
-                                                <div class="updown">
-                                                    <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
-                                                    <input type="text" name="p_num1" id="p_num1" size="1" maxlength="1" class="p_num" value="{{List.volume}}" onkeyup="javascript:basket.changePNum(1);" style="font-size: 10px; line-height: 10px;">
-                                                    <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="subdiv" style="width: 20%;">
-                                            <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right-align basketrowcmd">
-                                        <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delCheckedItem();">선택식재삭제</a>
-                                        <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delAllItem();">식재비우기</a>
-                                    </div>
-
-                                </table>
-                                <script>
-                                    let basket = {
-                                        totalCount: 0, 
-                                        totalPrice: 0,
-                                        //체크한 식재 상품 비우기
-                                        delCheckedItem: function(){
-                                            document.querySelectorAll("input[name=buy]:checked").forEach(function (item) {
-                                                item.parentElement.parentElement.parentElement.remove();
-                                            });
-                                            //AJAX 서버 업데이트 전송
-                                        
-                                            //전송 처리 결과가 성공이면
-                                            this.reCalc();
-                                            this.updateUI();
-                                        },
-                                        //식재 전체 비우기
-                                        delAllItem: function(){
-                                            document.querySelectorAll('.row.data').forEach(function (item) {
-                                                item.remove();
-                                              });
-                                              //AJAX 서버 업데이트 전송
-                                            
-                                              //전송 처리 결과가 성공이면
-                                              this.totalCount = 0;
-                                              this.totalPrice = 0;
-                                              this.reCalc();
-                                              this.updateUI();
-                                        },
-                                        //재계산
-                                        reCalc: function(){
-                                            this.totalCount = 0;
-                                            this.totalPrice = 0;
-                                            document.querySelectorAll(".p_num").forEach(function (item) {
-                                                if(item.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.firstElementChild.checked == true){
-                                                    var count = parseInt(item.getAttribute('value'));
-                                                    this.totalCount += count;
-                                                    var price = item.parentElement.parentElement.previousElementSibling.firstElementChild.getAttribute('value');
-                                                    this.totalPrice += count * price;
-                                                }
-                                            }, this); // forEach 2번째 파라메터로 객체를 넘겨서 this 가 객체리터럴을 가리키도록 함. - thisArg
-                                        },
-                                        //화면 업데이트
-                                        updateUI: function () {
-                                            document.querySelector('#sum_p_num').textContent = '상품갯수: ' + this.totalCount.formatNumber() + '개';
-                                            document.querySelector('#sum_p_price').textContent = '합계금액: ' + this.totalPrice.formatNumber() + '원';
-                                        },
-                                        //개별 수량 변경
-                                        changePNum: function (pos) {
-                                            var item = document.querySelector('input[name=p_num'+pos+']');
-                                            var p_num = parseInt(item.getAttribute('value'));
-                                            var newval = event.target.classList.contains('up') ? p_num+1 : event.target.classList.contains('down') ? p_num-1 : event.target.value;
-                                            
-                                            if (parseInt(newval) < 1 || parseInt(newval) > 99) { return false; }
-                                    
-                                            item.setAttribute('value', newval);
-                                            item.value = newval;
-                                    
-                                            var price = item.parentElement.parentElement.previousElementSibling.firstElementChild.getAttribute('value');
-                                            item.parentElement.parentElement.nextElementSibling.textContent = (newval * price).formatNumber()+"원";
-                                            //AJAX 업데이트 전송
-                                    
-                                            //전송 처리 결과가 성공이면    
-                                            this.reCalc();
-                                            this.updateUI();
-                                        },
-                                        checkItem: function () {
-                                            this.reCalc();
-                                            this.updateUI();
-                                        },
-                                        delItem: function () {
-                                            event.target.parentElement.parentElement.parentElement.remove();
-                                            this.reCalc();
-                                            this.updateUI();
-                                        }
-                                    }
-                                    
-                                    // 숫자 3자리 콤마찍기
-                                    Number.prototype.formatNumber = function(){
-                                        if(this==0) return 0;
-                                        let regex = /(^[+-]?\d+)(\d{3})/;
-                                        let nstr = (this + '');
-                                        while (regex.test(nstr)) nstr = nstr.replace(regex, '$1' + ',' + '$2');
-                                        return nstr;
-                                    };
-                                </script>
-                        
-                            </div>
-                        </div>
                     </div>
+                        
+                        
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
