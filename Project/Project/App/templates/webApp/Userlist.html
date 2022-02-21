@@ -99,39 +99,13 @@
                                 <div class="container">
                                     <input onkeyup="filter()" type="text" id="value" placeholder="검색">
                                     <a href="/Userlist/listsave" class="button" style="float: right;">레시피 등록</a>
-
-                                    <div class="item">
-                                        <span class="icon">짜</span>
-                                        <a class="name" href="/Userlist/Ulist1">짜장면</a>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">김</span>
-                                        <span class="name">김치찌개</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">된</span>
-                                        <span class="name">된장찌개</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">제</span>
-                                        <span class="name">제육볶음</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">소</span>
-                                        <span class="name">소불고기덮밥</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">부</span>
-                                        <span class="name">부대찌개</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">콩</span>
-                                        <span class="name">콩나물무침</span>
-                                      </div>
-                                      <div class="item">
-                                        <span class="icon">김</span>
-                                        <span class="name">김치</span>
-                                      </div>
+                                    <div class="container">
+                                        {% for userRecipe in userRecipes %}
+                                            <div class="item">
+                                                <a class="name" href= "/mainlist/mlist{{userRecipe.userrecipeid}}" role="button">{{ userRecipe.userrecipename }}</a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                             <script type="text/javascript">

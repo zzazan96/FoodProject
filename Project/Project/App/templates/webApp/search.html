@@ -88,12 +88,14 @@
                                 <input onkeyup="filter()" type="text" id="value" placeholder="검색">
                             </div>
                             <div class="card-body">
-                                <div class="container" style="overflow:scroll; height:500px"> 
-
+                                <div class="container" style="overflow:scroll; height:500px">  
                                     {% for Ingredient in Ingredients %}
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
                                         <div class="item">
-                                            <a class="name" role="button">{{ Ingredient.ingrename }}</a>
+                                            <a type="submit" id="ingrename" class="name" role="button">{{ Ingredient.ingrename }}</a>
                                         </div>
+                                    </form>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -122,7 +124,7 @@
                                 <div style="position: relative; left: -30;">
                                     <i class="fas fa-table me-1"></i>
                                 나의 냉장고
-                                <button style="float: right" onclick="location.href='/save2'">저장</button>
+                                <button style="float: right" onclick="location.href='/save'">저장</button>
                                 </div>
                                 <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 
@@ -148,26 +150,31 @@
                                         </div>
                                         <div class="split"></div>
                                     </div>
-                                    <div class="row data" style="--bs-gutter-x: 0rem;">
-                                        <div class="subdiv" style="width: 40%;">
-                                            <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
-                                            <div class="pname">
-                                                <span>양파</span>
+                                    {% for List in Lists %}
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <div class="row data" style="--bs-gutter-x: 0rem;">    
+                                            <div class="subdiv" style="width: 40%;">
+                                                <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div>
+                                                    <div class="pname">
+                                                        <span>{{List.ingrecode.ingrename}}</span>
+                                                    </div>
                                             </div>
-                                        </div>
-                                        <div class="subdiv" style="width: 40%;">
-                                            <div class="num">
-                                                <div class="updown">
-                                                    <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
-                                                    <input type="text" name="p_num1" id="p_num1" size="1" maxlength="1" class="p_num" value="{{List.volume}}" onkeyup="javascript:basket.changePNum(1);" style="font-size: 10px; line-height: 10px;">
-                                                    <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                                            <div class="subdiv" style="width: 40%;">
+                                                <div class="num">
+                                                    <div class="updown">
+                                                        <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+                                                        <input type="text" name="p_num1" id="p_num1" size="1" maxlength="1" class="p_num" value="{{List.volume}}" onkeyup="javascript:basket.changePNum(1);" style="font-size: 10px; line-height: 10px;">
+                                                        <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="subdiv" style="width: 20%;">
+                                                <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
+                                            </div>
                                         </div>
-                                        <div class="subdiv" style="width: 20%;">
-                                            <div class="basketcmd"><a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a></div>
-                                        </div>
-                                    </div>
+                                    </form>
+                                    {% endfor %}
                                 </div>
                                 <div class="right-align basketrowcmd">
                                         <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delCheckedItem();">선택식재삭제</a>

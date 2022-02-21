@@ -10,8 +10,9 @@ from .models import List2Tbl
 from .models import List3Tbl
 from .models import Cooktbl
 from .models import Recipeingredienttbl
-
-
+from .models import Imagetbl
+from .models import Userrecipetbl
+from .models import Userrecingtbl
 
 def login(request):
     if request.method == 'GET':
@@ -87,14 +88,20 @@ def savefix(request):
         fixlist = Listtbl.objects.filter(listid=listID)
         fixlist.volume = volume
         fixlist.save()
-        return render(request, 'webApp/savefix.html', {'Lists': Lists}, {'fixlist':fixlist})
+        return render(request, 'webApp/savefix.html', {'Lists': Lists,'fixlist':fixlist})
     
 def search(request):
     Ingredients = Ingredienttbl.objects.all()
-    return render(request, 'webApp/search.html', {'Ingredients':Ingredients})
+    usercode = request.session['user']
+    Lists = Listtbl.objects.filter(usercode = usercode)
+    if request.method == 'GET':
+        return render(request, 'webApp/search.html', {'Ingredients':Ingredients,'Lists':Lists})
+    elif request.method == 'POST':   
+        return render(request, 'webApp/search.html', {'Ingredients':Ingredients,'Lists':Lists})
 
 def Userlist(request):
-    return render(request, 'webApp/Userlist.html')
+    userRecipes = Userrecipetbl.objects.all()
+    return render(request, 'webApp/Userlist.html',{'userRecipes':userRecipes})
 
 def Ulist1(request):
     recipe = Recipetbl.objects.get(recipeid=1)
@@ -109,7 +116,35 @@ def Ulist3(request):
     return render(request, 'webApp/Ulist3.html', {'recipe':recipe})
 
 def listsave(request):
-    return render(request, 'webApp/listsave.html')
+    if request.method == 'GET':
+        return render(request, 'webApp/listsave.html')
+    elif request.method == 'POST':
+        recipename = request.POST.get('name', None)
+        userc = request.session['user']
+        usercode = Usertbl.objects.get(usercode=userc)
+        recipedetail = request.POST.get('content', None)
+        recipetype = request.POST.get('language', None)
+        userrecipe = Userrecipetbl(
+            recipename = recipename,
+            usercode = usercode,
+            recipedetail = recipedetail,
+            recipetype = recipetype
+        )
+        userrecipe.save()
+        ingrename = request.POST.get('code', None)
+        volume = request.POST.get('volume', None)
+        unit = request.POST.get('unit', None)  
+        urec = userrecipe.userrecipeid
+        urecid = Userrecipetbl.objects.get(userrecipeid=urec)
+        ingredient = Ingredienttbl.objects.get(ingrename=ingrename)
+        userrecing = Userrecingtbl(
+            userrecipeid = urecid,
+            ingrecode = ingredient,
+            volume = volume,
+            unit = unit
+        )
+        userrecing.save()
+        return redirect('mainlist')
     
 def mainlist(request):    
     Recipes = Recipetbl.objects.all()

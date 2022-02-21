@@ -216,12 +216,24 @@ class Recipeingredienttbl(models.Model):
         db_table = 'recipeingredientTBL'
 
 
+class Userrecingtbl(models.Model):
+    urecingid = models.AutoField(db_column='uRecIngID', primary_key=True)  # Field name made lowercase.
+    userrecipeid = models.ForeignKey('Userrecipetbl', models.DO_NOTHING, db_column='userRecipeID', blank=True, null=True)  # Field name made lowercase.
+    ingrecode = models.ForeignKey(Ingredienttbl, models.DO_NOTHING, db_column='ingreCode', blank=True, null=True)  # Field name made lowercase.
+    volume = models.FloatField(blank=True, null=True)
+    unit = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'userRecIngTBL'
+
+
 class Userrecipetbl(models.Model):
-    userrecipeid = models.IntegerField(db_column='userRecipeID', primary_key=True)  # Field name made lowercase.
+    userrecipeid = models.AutoField(db_column='userRecipeID', primary_key=True)  # Field name made lowercase.
     usercode = models.ForeignKey('Usertbl', models.DO_NOTHING, db_column='userCode', blank=True, null=True)  # Field name made lowercase.
-    recipename = models.CharField(db_column='recipeName', max_length=45)  # Field name made lowercase.
-    recipedetail = models.TextField(db_column='recipeDetail')  # Field name made lowercase.
-    recipetype = models.CharField(db_column='recipeType', max_length=5, blank=True, null=True)  # Field name made lowercase.
+    recipename = models.CharField(db_column='recipeName', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    recipedetail = models.TextField(db_column='recipeDetail', blank=True, null=True)  # Field name made lowercase.
+    recipetype = models.CharField(db_column='recipeType', max_length=45, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
