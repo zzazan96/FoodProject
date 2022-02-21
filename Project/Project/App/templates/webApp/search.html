@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% load static %}
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -12,7 +11,6 @@
         <link rel="stylesheet" href="../../static/CSS/styles.css">
         <link rel="stylesheet" href="../../static/CSS/test.css">
         <link rel="stylesheet" href="../../static/CSS/10-11.css">
-    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -83,12 +81,15 @@
                      <div class="container-fluid px-4">
                         <hr>
 
-                        <div class="card mb-4" style="float:left; width:49%">
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <input onkeyup="filter()" type="text" id="value" placeholder="검색">
+                                <button type="button" onClick="location.href='/save/search/searchplus'">
+                                다음
+                                </button>
                             </div>
                             <div class="card-body">
-                                <div class="container" style="overflow:scroll; height:500px">  
+                                <div class="container" style="overflow: scroll"> 
                                     {% for Ingredient in Ingredients %}
                                     <form action="" method="POST">
                                         {% csrf_token %}
@@ -118,7 +119,7 @@
                                   }
                             </script>
                         </div>
-                        
+                    </div>
                         <div class="card mb-4" style="float:right; width: 49%">
                             <div class="card-header">
                                 <div style="position: relative; left: -30;">
@@ -268,9 +269,6 @@
                                     };
                                 </script>
                         
-                            </div>
-                        </div>
-                    </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
